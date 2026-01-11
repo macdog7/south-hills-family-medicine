@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>South Hills</title>
+</head>
+
+<body class="font-lato bg-white">
+    <!-- Header -->
+    <header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+
+                <!-- Logo and Brand -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <svg viewBox="0 0 122.73733 27.289244"
+                        class="w-28 h-auto transition-transform duration-300 group-hover:scale-105 fill-brand-800"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(-20.622932,-99.24222)">
+                            <path
+                                d="m 134.23616,123.13954 c -4.07458,-1.84944 -9.01851,-4.0748 -10.98651,-4.94524 l -3.57817,-1.58261 -10.18016,4.69209 c -5.59909,2.58065 -10.43347,4.69964 -10.743074,4.70886 -0.717593,0.0214 -1.222182,-0.58202 -1.11104,-1.32863 0.07155,-0.48062 1.311814,-1.14192 7.191704,-3.83457 3.90789,-1.78958 7.14648,-3.29501 7.19686,-3.3454 0.0504,-0.0504 -2.66576,-1.5163 -6.03588,-3.25759 -6.559124,-3.38901 -19.843795,-10.4022 -22.024561,-11.62712 l -1.322916,-0.74308 -9.392708,5.15659 c -5.16599,2.83612 -10.44622,5.72336 -11.733847,6.41609 l -2.341138,1.2595 3.238588,1.8024 c 11.358026,6.32118 13.49619,7.57793 13.638263,8.01619 0.164132,0.50631 -0.542383,1.5024 -1.065638,1.5024 -0.164133,0 -6.366356,-3.3877 -13.782718,-7.52821 -13.344715,-7.45028 -13.491149,-7.52367 -14.146506,-7.08964 -0.640412,0.42413 -18.928354,11.31924 -23.081376,13.75082 -1.986493,1.16308 -2.065691,1.18533 -2.711979,0.76186 -0.825801,-0.54108 -0.856919,-1.35255 -0.07042,-1.83626 5.681791,-3.49444 26.269716,-15.52107 26.56991,-15.52107 0.224849,0 2.330672,1.08595 4.679608,2.41321 l 4.270792,2.41322 2.645834,-1.39964 c 1.455208,-0.76981 7.28927,-3.95381 12.964582,-7.07557 l 10.31875,-5.67592 0.791405,0.453327 c 1.666136,0.954383 15.179181,8.092463 23.153385,12.230453 l 8.33438,4.32489 2.39446,-1.07859 2.39445,-1.07859 8.32117,3.6917 c 15.52062,6.88576 15.31759,6.78471 15.32857,7.6298 0.006,0.46878 -0.76749,1.14719 -1.27162,1.11516 -0.24426,-0.0155 -3.77787,-1.54139 -7.85245,-3.39083 z" />
+                        </g>
+                    </svg>
+                    <span
+                        class="text-xl font-poppins font-medium text-brand-800 transition-colors duration-300 group-hover:text-accent-blue">
+                        South Hills Medicine
+                    </span>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-brand-800 font-medium hover:text-accent-blue">Home</a>
+                    <a href="#services" class="nav-link text-brand-800 font-medium hover:text-accent-blue">Services</a>
+                    <a href="#providers" class="nav-link text-brand-800 font-medium hover:text-accent-blue">Providers</a>
+
+                    <!-- Location Pin (Desktop) -->
+                    <a href="https://maps.google.com/?q=South+Hills+Medicine+Helena+MT" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden xl:flex items-center gap-2 px-4 py-2 text-brand-800 hover:text-accent-blue transition-colors"
+                        title="View on Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            class="fill-current">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                    </a>
+
+                    <!-- Contact Button -->
+                    <a href="tel:+14064422205"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-blue text-white font-semibold shadow-md transition-all duration-300 hover:bg-brand-700 hover:shadow-lg hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            class="fill-white">
+                            <path
+                                d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                        </svg>
+                        Call Us
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-2">
+                    <!-- Location Pin (Mobile) -->
+                    <a href="https://maps.google.com/?q=South+Hills+Medicine+Helena+MT" target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-2 text-brand-800 hover:bg-gray-100 rounded-md transition-colors"
+                        title="View on Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            class="fill-current">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                    </a>
+
+                    <button class="p-2 text-brand-800 hover:bg-gray-100 rounded-md transition-colors"
+                        onclick="toggleMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-gray-200">
+                <nav class="flex flex-col gap-2 pt-4">
+                    <a href="#home"
+                        class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Home</a>
+                    <a href="#services"
+                        class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Services</a>
+                    <a href="#providers"
+                        class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Providers</a>
+                    <a href="tel:+14065551234"
+                        class="inline-flex items-center justify-center gap-2 px-6 py-3 mt-2 rounded-lg bg-accent-blue text-white font-semibold shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            class="fill-white">
+                            <path
+                                d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                        </svg>
+                        Call Us
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="home" class="bg-linear-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center px-8">
+
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-brand-700 leading-tight">
+                        <span class="text-accent-blue">Compassionate</span> and
+                        <span class="text-accent-blue"> thorough</span> care aimed at Helena and the greater community
+                    </h1>
+
+                    <a href="tel:+14065551234"
+                        class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-accent-blue text-white font-semibold shadow-lg transition-all duration-300 hover:bg-brand-700 hover:shadow-xl hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            class="fill-white">
+                            <path
+                                d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                        </svg>
+                        Call to Schedule
+                    </a>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative">
+                    <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="./IMG20250827120756.jpg" alt="Medical professional"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 lg:py-24 bg-brand-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Comprehensive Medical Services</h2>
+                <p class="text-lg text-white/90">
+                    We offer personalized primary care for adults <strong>18 and older</strong> focused on thorough
+                    evaluation, accurate diagnosis, effective treatment, and long-term health management.
+                </p>
+                <p class="text-base text-white mt-4 font-semibold">
+                    ** We do not accept Medicare, Medicaid, or Tricare. **
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Service Card 1 -->
+                <div class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-accent-blue mb-6">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Primary Care</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Annual wellness exams, preventive screenings, and routine physicals designed to keep you healthy
+                        year-round. We focus on early detection, lifestyle support, and personalized health planning.
+                    </p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-accent-blue mb-6">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Chronic Condition Management</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Expert management of diabetes, hypertension, heart disease, and other ongoing health conditions
+                        with regular monitoring and personalized treatment plans.
+                    </p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-accent-blue mb-6">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Acute Care & Same-Day Visits</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Prompt attention for urgent health concerns, including infections, injuries, and sudden illness.
+                        We prioritize getting you seen quickly when you need care.
+                    </p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-accent-blue mb-6">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                    </svg>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Medication Management</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Safe, thoughtful prescribing and regular review of all your medications, including refills, dose
+                        adjustments, and monitoring for interactions or side effects.
+                    </p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-accent-blue mb-6">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Women's Health</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Comprehensive care including well-woman exams, contraception counseling, hormone-focused care,
+                        perimenopause and menopause management, and preventive screening tailored to every stage of
+                        life.
+                    </p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-accent-blue mb-6">
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                    </svg>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Men's Health</h3>
+                    <p class="text-warm-gray leading-relaxed">
+                        Focused care for men's unique health needs, including prostate screening, cardiovascular risk assessment, and preventive health counseling.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Providers Section -->
+    <section id="providers" class="py-12 lg:py-16">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="space-y-16">
+
+                <!-- Provider 1: Carey -->
+                <div class="provider-card">
+                    <div class="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-12">
+                        <div>
+                            <img 
+                                src="./bio_carey.png" 
+                                alt="Carey, DNP, FNP-C - Board-certified Family Nurse Practitioner"
+                                class="w-full aspect-3/4 object-cover rounded-lg shadow-md"
+                                loading="lazy"
+                                width="300"
+                                height="400" />
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <h2 class="text-3xl font-bold text-brand-700 mb-2">Carey</h2>
+                                <p class="text-accent-blue text-base font-semibold tracking-wide mb-3">DNP, FNP-C</p>
+                                <div class="w-16 h-1 bg-accent-blue rounded-full"></div>
+                            </div>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                A board-certified Family Nurse Practitioner who earned her Doctor of Nursing Practice
+                                degree from Gonzaga University—GO ZAGS!
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                She brings a diverse clinical background, having practiced in critical care/ER, internal
+                                medicine, mental health, and care for the developmentally delayed population.
+
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Outside of her practice, Carey enjoys scuba diving with her husband, gardening, and
+                                spending time with her beloved dogs.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provider 2: Airica -->
+                <div class="provider-card">
+                    <div class="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-12">
+                        <div>
+                            <img 
+                                src="./bio_airica.JPG" 
+                                alt="Airica, DNP, FNP - Board-certified Family Nurse Practitioner accepting new patients"
+                                class="w-full aspect-3/4 object-cover rounded-lg shadow-md"
+                                loading="lazy"
+                                width="300"
+                                height="400" />
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <h2 class="text-3xl font-bold text-brand-700 mb-2">Airica</h2>
+                                <p class="text-accent-blue text-base font-semibold tracking-wide">DNP, FNP</p>
+                                <div class="inline-block px-3 py-1.5 mt-2 mb-3 bg-accent-green text-white text-sm font-semibold rounded-full shadow-sm">
+                                    ✓ Accepting New Patients
+                                </div>
+                                <div class="w-16 h-1 bg-accent-blue rounded-full"></div>
+                            </div>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Earned her Doctor of Nursing Practice from Montana State University, after earning
+                                Bachelor of Science in Nursing from Regis University and a Bachelor of Science in
+                                Sociology from Montana State University.
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Her nursing background includes experience in Urgent Care, Same Day Services, the
+                                Post-Anesthesia Care Unit (PACU), and the Emergency Department.
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                She is board-certified by the American Academy of Nurse Practitioners.
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed italic">
+                                A proud Montana native, Airica enjoys spending time outdoors. She finds peace and joy on
+                                the trails with her husband, Andy, and their dog, Willow, by her side.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provider 3: Megan -->
+                <div class="provider-card">
+                    <div class="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-12">
+                        <div>
+                            <img 
+                                src="./bio_megan2.JPG" 
+                                alt="Megan Macke, DNP, FNP - Board-certified Family Nurse Practitioner accepting new patients"
+                                class="w-full aspect-3/4 object-cover rounded-lg shadow-md"
+                                loading="lazy"
+                                width="300"
+                                height="400" />
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <h2 class="text-3xl font-bold text-brand-700 mb-2">Megan Macke</h2>
+                                <p class="text-accent-blue text-base font-semibold tracking-wide">DNP, FNP</p>
+                                <div class="inline-block px-3 py-1.5 mt-2 mb-3 bg-accent-green text-white text-sm font-semibold rounded-full shadow-sm">
+                                    ✓ Accepting New Patients
+                                </div>
+                                <div class="w-16 h-1 bg-accent-blue rounded-full"></div>
+                            </div>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                A board-certified Family Nurse Practitioner who earned her Doctor of Nursing Practice
+                                degree from the University of Mary in Bismarck, ND. Originally from Billings, MT, she is
+                                proud to serve the Helena community.
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Megan has a special interest in women's health and has pursued advanced training in
+                                Fertility Education and Medical Management (FEMM) to provide patients with comprehensive
+                                guidance on hormonal health, menstrual cycles, and evidence-based care options
+                                supporting ovulation/fertility.
+                            </p>
+
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                In addition to her clinical work, Megan enjoys life with her husband, their two
+                                daughters, and their Goldendoodle. Together, they love spending time outdoors camping,
+                                boating, along with traveling internationally.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-800 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg viewBox="0 0 122.73733 27.289244" class="w-24 h-auto fill-white" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(-20.622932,-99.24222)">
+                                <path
+                                    d="m 134.23616,123.13954 c -4.07458,-1.84944 -9.01851,-4.0748 -10.98651,-4.94524 l -3.57817,-1.58261 -10.18016,4.69209 c -5.59909,2.58065 -10.43347,4.69964 -10.743074,4.70886 -0.717593,0.0214 -1.222182,-0.58202 -1.11104,-1.32863 0.07155,-0.48062 1.311814,-1.14192 7.191704,-3.83457 3.90789,-1.78958 7.14648,-3.29501 7.19686,-3.3454 0.0504,-0.0504 -2.66576,-1.5163 -6.03588,-3.25759 -6.559124,-3.38901 -19.843795,-10.4022 -22.024561,-11.62712 l -1.322916,-0.74308 -9.392708,5.15659 c -5.16599,2.83612 -10.44622,5.72336 -11.733847,6.41609 l -2.341138,1.2595 3.238588,1.8024 c 11.358026,6.32118 13.49619,7.57793 13.638263,8.01619 0.164132,0.50631 -0.542383,1.5024 -1.065638,1.5024 -0.164133,0 -6.366356,-3.3877 -13.782718,-7.52821 -13.344715,-7.45028 -13.491149,-7.52367 -14.146506,-7.08964 -0.640412,0.42413 -18.928354,11.31924 -23.081376,13.75082 -1.986493,1.16308 -2.065691,1.18533 -2.711979,0.76186 -0.825801,-0.54108 -0.856919,-1.35255 -0.07042,-1.83626 5.681791,-3.49444 26.269716,-15.52107 26.56991,-15.52107 0.224849,0 2.330672,1.08595 4.679608,2.41321 l 4.270792,2.41322 2.645834,-1.39964 c 1.455208,-0.76981 7.28927,-3.95381 12.964582,-7.07557 l 10.31875,-5.67592 0.791405,0.453327 c 1.666136,0.954383 15.179181,8.092463 23.153385,12.230453 l 8.33438,4.32489 2.39446,-1.07859 2.39445,-1.07859 8.32117,3.6917 c 15.52062,6.88576 15.31759,6.78471 15.32857,7.6298 0.006,0.46878 -0.76749,1.14719 -1.27162,1.11516 -0.24426,-0.0155 -3.77787,-1.54139 -7.85245,-3.39083 z" />
+                            </g>
+                        </svg>
+                        <span class="text-xl font-semibold">South Hills Medicine</span>
+                    </div>
+                    <p class="text-white/80 mb-4 max-w-md">
+                        Providing compassionate, personalized primary care to adults in Helena and the greater Montana
+                        community.
+                    </p>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <div class="space-y-3 text-white/80">
+                        <a href="tel:+14065551234" class="flex items-start gap-3 hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                                class="fill-current shrink-0 mt-0.5">
+                                <path
+                                    d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                            </svg>
+                            <div>
+                                <div class="font-medium text-white">(406) 555-1234</div>
+                                <div class="text-sm">Mon-Fri: 8:00 AM - 5:00 PM</div>
+                            </div>
+                        </a>
+                        <a href="mailto:info@southhillsmedicine.com"
+                            class="flex items-center gap-3 hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                                class="fill-current shrink-0">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                            info@southhillsmedicine.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Location</h3>
+                    <a href="https://maps.google.com/?q=South+Hills+Medicine+Helena+MT" target="_blank"
+                        rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors">
+                        <div class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                                class="fill-current shrink-0 mt-0.5">
+                                <path
+                                    d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                            </svg>
+                            <div>
+                                <div>1234 South Hills Drive</div>
+                                <div>Helena, MT 59601</div>
+                                <div class="text-sm mt-1 underline">Get Directions →</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
+                    <p>&copy; 2025 South Hills Medicine. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>
