@@ -88,13 +88,13 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-gray-200">
                 <nav class="flex flex-col gap-2 pt-4">
-                    <a href="#home"
+                    <a href="#home" onclick="toggleMenu()"
                         class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Home</a>
-                    <a href="#services"
+                    <a href="#services" onclick="toggleMenu()"
                         class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Services</a>
-                    <a href="#providers"
+                    <a href="#providers" onclick="toggleMenu()"
                         class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Providers</a>
-                    <a href="tel:+14064422205"
+                    <a href="tel:+14064422205" onclick="toggleMenu()"
                         class="inline-flex items-center justify-center gap-2 px-6 py-3 mt-2 rounded-lg bg-accent-blue text-white font-semibold shadow-md">
                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
                             class="fill-white">
@@ -260,6 +260,15 @@
     <!-- Providers Section -->
     <section id="providers" class="py-12 lg:py-16">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-brand-700 mb-4">Meet Our Providers</h2>
+                <p class="text-lg text-gray-700">
+                    Our experienced team of board-certified nurse practitioners is dedicated to providing personalized, compassionate care.
+                </p>
+            </div>
+
             <div class="space-y-16">
 
                 <!-- Provider 1: Carey -->
