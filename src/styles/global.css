@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #3D5A80;
+    --color-mauve: #B5A89F;
+    --color-sage: #7D9B76;
+    --color-blush: #EDE4DB;
+    --color-warm-gray: #5C5C5C;
+    --color-linen: #F9F6F1;
+
+    --color-egshell: #FDFBF8;
+
+    /* Brand – sophisticated slate blue scale */
+    --color-brand-900: #1E2F42;
+    --color-brand-800: #2B4158;
+    --color-brand-700: #3D5A80;
+    --color-brand-600: #4E6E94;
+    --color-brand-500: #6183A6;
+
+    /* primary brand color */
+    --color-brand-400: #7B9FBF;
+    --color-brand-300: #9DBAD4;
+
+    /* soft + charming */
+    --color-brand-200: #C5D9E8;
+    --color-brand-100: #E5EEF5;
+    --color-brand-50: #F5F8FB;
+
+    /* Neutral – refined warm grays */
+    --color-neutral-900: #2D2D2D;
+    --color-neutral-700: #4A4A4A;
+    --color-neutral-500: #6F6F6F;
+    --color-neutral-300: #CBCBCB;
+    --color-neutral-100: #F1F1F1;
+    --color-neutral-50: #F8F8F8;
+
+    /* Accent – fresh and professional */
+    --color-accent-green: #7D9B76;
+    --color-accent-green-hover: #6A8765;
+    --color-accent-blue: #5B8FA8;
+    --font-lato: "Lato";
+    --font-poppins: "Poppins";
+}
+
+@layer components {
+
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+    outline: none;
+    cursor: pointer;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #5B8FA8;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link:focus-visible::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #5B8FA8;
+    transform: translateY(-2px);
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid #5B8FA8;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.nav-link:active::after {
+    width: 100%;
+}
+
+/* Touch device support - make interactive elements more obvious */
+@media (hover: none) {
+    .nav-link {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        inset: -6px -4px;
+        border-radius: 4px;
+        background-color: transparent;
+        transition: background-color 0.2s ease;
+    }
+    
+    .nav-link:active::before {
+        background-color: rgba(91, 143, 168, 0.1);
+    }
+}
+
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Touch device support for service cards */
+@media (hover: none) {
+    .service-card:active {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Universal button styling for touch devices */
+@media (hover: none) {
+    a[href^="tel:"],
+    a[href^="mailto:"],
+    button {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(91, 143, 168, 0.2);
+        tap-highlight-color: rgba(91, 143, 168, 0.2);
+    }
+    
+    /* Make all footer links more touchable */
+    footer a {
+        position: relative;
+        padding: 4px 0;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(91, 143, 168, 0.2);
+        tap-highlight-color: rgba(91, 143, 168, 0.2);
+    }
+}
+
+/* Enhanced hover states for all links */
+footer a[href^="#"],
+footer a[href^="tel:"],
+footer a[href^="mailto:"] {
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+footer a[href^="#"]:hover,
+footer a[href^="tel:"]:hover,
+footer a[href^="mailto:"]:hover {
+    text-decoration-color: currentColor;
+}
+
+/* Enhanced hover for location card in footer */
+footer .group:hover {
+    border-color: #5B8FA8;
+    background-color: rgba(91, 143, 168, 0.05);
+}
+
+/* CTA Button styling - more prominent hover effects */
+a[href^="tel:"][class*="bg-accent-blue"],
+button[class*="bg-accent-blue"] {
+    position: relative;
+    overflow: hidden;
+}
+
+a[href^="tel:"][class*="bg-accent-blue"]::before,
+button[class*="bg-accent-blue"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+a[href^="tel:"][class*="bg-accent-blue"]:hover::before,
+button[class*="bg-accent-blue"]:hover::before {
+    opacity: 1;
+}
+
+a[href^="tel:"][class*="bg-accent-blue"]:hover,
+button[class*="bg-accent-blue"]:hover {
+    box-shadow: 0 12px 32px rgba(91, 143, 168, 0.4) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+}
+
+a[href^="tel:"][class*="bg-accent-blue"]:active,
+button[class*="bg-accent-blue"]:active {
+    transform: translateY(-1px) scale(1) !important;
+}
+
+/* Directions card - more obvious on hover */
+footer a[href*="maps.google"]:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(91, 143, 168, 0.3);
+    background-color: rgba(91, 143, 168, 0.08) !important;
+}
+
+}

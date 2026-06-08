@@ -1,0 +1,99 @@
+---
+interface ServiceCard {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const services: ServiceCard[] = [
+  {
+    icon: "users",
+    title: "Primary Care",
+    description: "Annual wellness exams, preventive screenings, and routine physicals designed to keep you healthy year-round. We focus on early detection, lifestyle support, and personalized health planning."
+  },
+  {
+    icon: "trending",
+    title: "Chronic Condition Management",
+    description: "Expert management of diabetes, hypertension, heart disease, and other ongoing health conditions with regular monitoring and personalized treatment plans."
+  },
+  {
+    icon: "checkmark",
+    title: "Acute Care & Same-Day Visits",
+    description: "Prompt attention for urgent health concerns, including infections, injuries, and sudden illness. We prioritize getting you seen quickly when you need care."
+  },
+  {
+    icon: "pills",
+    title: "Medication Management",
+    description: "Safe, thoughtful prescribing and regular review of all your medications, including refills, dose adjustments, and monitoring for interactions or side effects."
+  },
+  {
+    icon: "heart",
+    title: "Women's Health",
+    description: "Comprehensive care including well-woman exams, contraception counseling, hormone-focused care, perimenopause and menopause management, and preventive screening tailored to every stage of life."
+  },
+  {
+    icon: "shield",
+    title: "Men's Health",
+    description: "Focused care for men's unique health needs, including prostate screening, cardiovascular risk assessment, and preventive health counseling."
+  }
+];
+
+const iconPaths: Record<string, string> = {
+  users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M9 7a4 4 0 1 1 0-8 4 4 0 0 1 0 8z",
+  trending: "M22 12h-4l-3 9L9 3l-3 9H2",
+  checkmark: "M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4l-10 10.01-3-3.01",
+  pills: "M22 12h-4l-3 9L9 3l-3 9H2M15 9l-3 9-3-9m0 0h6",
+  heart: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+  shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+};
+---
+
+<section id="services" class="py-16 lg:py-24 bg-brand-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Comprehensive Medical Services</h2>
+      <p class="text-lg text-white/90 leading-relaxed">
+        We offer personalized primary care for adults <strong>18 and older</strong> focused on thorough
+        evaluation, accurate diagnosis, effective treatment, and long-term health management.
+      </p>
+      <p class="text-base text-white mt-4 font-semibold">
+        ** We do not accept Medicare, Medicaid, or Tricare. **
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map((service) => (
+        <article class="service-card bg-egshell rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-accent-blue mb-6" role="img" aria-hidden="true">
+            <path d={iconPaths[service.icon]} />
+          </svg>
+          <h3 class="text-xl font-bold text-brand-800 mb-3">{service.title}</h3>
+          <p class="text-warm-gray leading-relaxed">{service.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .service-card:focus-within {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+</style>

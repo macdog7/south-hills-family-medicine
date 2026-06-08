@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Providers from '../components/Providers.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "South Hills Family Medicine | Primary Care in Helena, MT";
+const pageDescription = "Compassionate and thorough primary care for adults 18 and older in Helena, Montana. Expert healthcare providers offering preventive care, chronic condition management, and same-day visits.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  <main>
+    <Hero 
+      title="Compassionate and thorough care for Helena and the greater community"
+      ctaText="Call to Schedule"
+      ctaHref="tel:+14064422205"
+    />
+    <Services />
+    <Providers />
+  </main>
+  <Footer />
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "South Hills Family Medicine",
+    "description": "Primary care medical practice for adults 18 and older",
+    "url": "https://south-hills-medicine.com",
+    "telephone": "+14064422205",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Helena",
+      "addressRegion": "MT",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Helena"
+    },
+    "medicalSpecialty": "Family Medicine",
+    "priceRange": "$$"
+  })} />
+</Layout>

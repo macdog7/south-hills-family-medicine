@@ -1,0 +1,92 @@
+---
+// Footer component with contact info and essential links
+---
+
+<footer class="bg-brand-800 text-white py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <!-- About -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">South Hills Medicine</h3>
+        <p class="text-white/80 text-sm leading-relaxed">
+          Providing compassionate and thorough primary care for adults 18 and older in Helena and the surrounding community.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+        <nav class="space-y-2" aria-label="Footer navigation">
+          <a href="#home" class="text-white/80 hover:text-white transition-colors text-sm">Home</a>
+          <a href="#services" class="text-white/80 hover:text-white transition-colors text-sm">Services</a>
+          <a href="#providers" class="text-white/80 hover:text-white transition-colors text-sm">Providers</a>
+          <a href="tel:+14064422205" class="text-white/80 hover:text-white transition-colors text-sm">Contact Us</a>
+        </nav>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">Contact Information</h3>
+        <div class="space-y-3 text-sm">
+          <div>
+            <p class="text-white/80">Phone</p>
+            <a href="tel:+14064422205" class="text-white hover:text-accent-blue transition-colors font-semibold">
+              (406) 442-2205
+            </a>
+          </div>
+          <div>
+            <p class="text-white/80">Email</p>
+            <a href="mailto:info@south-hills-medicine.com" class="text-white hover:text-accent-blue transition-colors font-semibold">
+              info@south-hills-medicine.com
+            </a>
+          </div>
+          <div>
+            <p class="text-white/80">Location</p>
+            <a href="https://maps.google.com/?q=South+Hills+Medicine+Helena+MT" target="_blank" rel="noopener noreferrer"
+              class="group block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-accent-blue">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                  class="fill-current text-accent-blue shrink-0 mt-0.5" aria-hidden="true">
+                  <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                </svg>
+                <div>
+                  <div class="text-white font-semibold">301 Saddle Dr Suite D</div>
+                  <div class="text-white/80">Helena, MT 59601</div>
+                  <div class="text-sm mt-1 underline text-accent-blue group-hover:text-white">Get Directions →</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-white/20 my-8"></div>
+
+    <!-- Bottom Info -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-sm text-white/70">
+          <strong>Insurance Note:</strong> We do not accept Medicare, Medicaid, or Tricare.
+        </p>
+      </div>
+      <div class="text-sm text-white/70 md:text-right">
+        <p>&copy; {new Date().getFullYear()} South Hills Family Medicine. All rights reserved.</p>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  a:focus-visible {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+</style>
