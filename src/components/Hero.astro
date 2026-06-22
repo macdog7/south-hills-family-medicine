@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import heroImg from '../assets/hero.jpg';
+import { Image } from "astro:assets";
+import heroImg from "../assets/hero.jpg";
 
 interface Props {
   title?: string;
@@ -13,7 +13,7 @@ const {
   title = "Compassionate and thorough care for Helena and the greater community",
   subtitle = "",
   ctaText = "Call to Schedule",
-  ctaHref = "tel:+14064422205"
+  ctaHref = "tel:+14064422205",
 } = Astro.props;
 ---
 
@@ -24,20 +24,32 @@ const {
       <div class="space-y-8">
         <h1 class="text-4xl lg:text-5xl font-bold text-brand-700 leading-tight">
           <span class="text-accent-blue">Compassionate</span> and
-          <span class="text-accent-blue"> thorough</span> care for Helena and the greater community
+          <span class="text-accent-blue"> thorough</span> Healthcare for Helena and the
+          greater community
         </h1>
 
         <p class="text-lg text-gray-700 leading-relaxed">
-          South Hills Family Medicine provides personalized primary care focused on thorough evaluation, 
-          accurate diagnosis, effective treatment, and long-term health management for adults 18 and older.
+          South Hills Medicine provides personalized primary care focused
+          on thorough evaluation, accurate diagnosis, effective treatment, and
+          long-term health management for adults 18 and older.
         </p>
 
-        <a href={ctaHref}
-          class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-accent-blue text-white font-semibold shadow-lg transition-all duration-300 hover:bg-brand-700 hover:shadow-xl hover:-translate-y-0.5 focus:outline-2 focus:outline-offset-2 focus:outline-accent-blue">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-            class="fill-white" role="img" aria-hidden="true">
+        <a
+          href={ctaHref}
+          class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-accent-blue text-white font-semibold shadow-lg transition-all duration-300 hover:bg-brand-700 hover:shadow-xl hover:-translate-y-0.5 focus:outline-2 focus:outline-offset-2 focus:outline-accent-blue"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            class="fill-white"
+            role="img"
+            aria-hidden="true"
+          >
             <path
-              d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+              d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"
+            ></path>
           </svg>
           {ctaText}
         </a>
@@ -48,20 +60,26 @@ const {
         <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
           <Image
             src={heroImg}
-              widths={[400, 800, 1200]}
-              sizes="(max-width: 768px) 100vw, 779px"
-              format="webp"
-              loading="eager"
-              fetchpriority="high"
-              alt="Medical professional providing compassionate care at South Hills Family Medicine"
-              class="w-full h-full object-cover"
-              loading="eager"
-              decoding="async"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, 779px"
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
+            alt="Medical professional providing compassionate care at South Hills Family Medicine"
+            class="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
           />
         </div>
         <!-- Decorative elements for visual interest -->
-        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-blue/10 rounded-full -z-10"></div>
-        <div class="absolute -top-4 -left-4 w-32 h-32 bg-brand-500/5 rounded-full -z-10"></div>
+        <div
+          class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-blue/10 rounded-full -z-10"
+        >
+        </div>
+        <div
+          class="absolute -top-4 -left-4 w-32 h-32 bg-brand-500/5 rounded-full -z-10"
+        >
+        </div>
       </div>
     </div>
   </div>
