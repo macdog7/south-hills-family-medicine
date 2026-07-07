@@ -1,5 +1,6 @@
 ---
 import Font from 'astro/components/Font.astro';
+import { BUSINESS, OG_IMAGE, SITE_DESCRIPTION, SITE_TITLE } from '../config';
 import '../styles/global.css';
 
 interface Props {
@@ -7,7 +8,11 @@ interface Props {
   description?: string;
 }
 
-const { title = "South Hills Medicine", description = "Compassionate and thorough medical care for Helena and the greater community" } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+
+// Prefer the configured production domain so canonical/OG URLs are stable
+// regardless of the host the page is served from.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 ---
 
 <!DOCTYPE html>
@@ -15,25 +20,40 @@ const { title = "South Hills Medicine", description = "Compassionate and thoroug
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#2B4158" />
-    
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Local SEO geo tags -->
+    <meta name="geo.region" content="US-MT" />
+    <meta name="geo.placename" content="Helena" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={BUSINESS.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://southhillsmedicine.com/og-image.jpg" />
-    
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:alt" content={`${BUSINESS.name} — primary care in Helena, MT`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={OG_IMAGE} />
+
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <Font cssVariable="--font-lato" preload />
     <Font cssVariable="--font-poppins" preload />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href={Astro.url.href} />
   </head>
 
   <body class="font-lato bg-white">

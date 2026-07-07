@@ -5,9 +5,74 @@ import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
 import Providers from '../components/Providers.astro';
 import Footer from '../components/Footer.astro';
+import { BUSINESS, OG_IMAGE, SITE_URL } from '../config';
+import { providers } from '../data/providers';
 
-const pageTitle = "Nurse Practitioner & Primary Care Clinic in Helena, MT | South Hills Internal Medicine";
-const pageDescription = "Compassionate and thorough primary care for adults 18 and older in Helena, Montana. Expert healthcare providers offering preventive care, chronic condition management, and same-day visits.";
+const pageTitle = "Nurse Practitioner & Primary Care Clinic in Helena, MT | South Hills Medicine";
+const pageDescription = "Compassionate and thorough primary care for adults 18 and older in Helena, Montana. Expert nurse practitioners offering preventive care, chronic condition management, women's & men's health, and same-day visits.";
+
+// schema.org structured data emitted as a @graph: the clinic (MedicalClinic)
+// plus a Person node per provider, cross-linked via worksFor/employee. Built
+// from src/config.ts and src/data/providers.ts so the schema stays consistent
+// with the visible page, the meta tags, and directory listings.
+const CLINIC_ID = `${SITE_URL}/#clinic`;
+
+const clinic = {
+  "@type": ["MedicalClinic", "MedicalBusiness", "LocalBusiness"],
+  "@id": CLINIC_ID,
+  name: BUSINESS.name,
+  legalName: BUSINESS.legalName,
+  alternateName: BUSINESS.alternateNames,
+  description: pageDescription,
+  url: `${SITE_URL}/`,
+  telephone: BUSINESS.phone,
+  email: BUSINESS.email,
+  image: OG_IMAGE,
+  priceRange: BUSINESS.priceRange,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: BUSINESS.address.street,
+    addressLocality: BUSINESS.address.city,
+    addressRegion: BUSINESS.address.region,
+    postalCode: BUSINESS.address.postalCode,
+    addressCountry: BUSINESS.address.country,
+  },
+  areaServed: [
+    { "@type": "City", name: "Helena" },
+    { "@type": "AdministrativeArea", name: "Lewis and Clark County, MT" },
+  ],
+  medicalSpecialty: "PrimaryCare",
+  audience: { "@type": "PeopleAudience", suggestedMinAge: 18 },
+  openingHoursSpecification: BUSINESS.hours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  hasMap: BUSINESS.mapUrl,
+  sameAs: BUSINESS.sameAs,
+  employee: providers.map((p) => ({ "@id": `${SITE_URL}/#provider-${p.id}` })),
+};
+
+const providerNodes = providers.map((p) => ({
+  "@type": "Person",
+  "@id": `${SITE_URL}/#provider-${p.id}`,
+  name: p.name,
+  jobTitle: p.jobTitle,
+  worksFor: { "@id": CLINIC_ID },
+  hasCredential: p.credentials.split(",").map((c) => ({
+    "@type": "EducationalOccupationalCredential",
+    credentialCategory: "certification",
+    name: c.trim(),
+  })),
+  alumniOf: p.alumniOf.map((name) => ({ "@type": "CollegeOrUniversity", name })),
+  knowsAbout: p.knowsAbout,
+}));
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [clinic, ...providerNodes],
+};
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -24,24 +89,5 @@ const pageDescription = "Compassionate and thorough primary care for adults 18 a
   <Footer />
   
   <!-- Structured Data for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "South Hills Medicine",
-    "description": "Primary care medical practice for adults 18 and older",
-    "url": "https://www.southhillsinternalmedicine.com/",
-    "telephone": "+14064422205",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Helena",
-      "addressRegion": "MT",
-      "addressCountry": "US"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Helena"
-    },
-    "medicalSpecialty": "Family Medicine",
-    "priceRange": "$$"
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </Layout>

@@ -1,69 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import careyImg from '../assets/bio_carey.png';
-import airicaImg from '../assets/bio_airica.JPG'
-import meganImg from '../assets/bio_megan2.JPG';
-
-interface Provider {
-  id: string;
-  name: string;
-  credentials: string;
-  status?: string;
-  image: ImageMetadata;
-  bio: string[];
-}
-
-interface ImageMetadata {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
-}
-
-const providers: Provider[] = [
-  {
-    id: 'carey',
-    name: 'Carey Phelan',
-    credentials: 'DNP, FNP-C',
-    image: careyImg,
-    bio: [
-      "A board-certified Family Nurse Practitioner who earned her Doctor of Nursing Practice degree from Gonzaga University—GO ZAGS!",
-      "She brings a diverse clinical background, having practiced in critical care/ER, internal medicine, mental health, and care for the developmentally delayed population.",
-      "Outside of her practice, Carey enjoys scuba diving with her husband, gardening, and spending time with her beloved dogs."
-    ]
-  },
-  {
-    id: 'airica',
-    name: 'Airica Rishavy',
-    credentials: 'DNP, FNP',
-    status: '✓ Accepting New Patients',
-    image: airicaImg,
-    bio: [
-      "Earned her Doctor of Nursing Practice from Montana State University, after earning a Bachelor of Science in Nursing from Regis University and a Bachelor of Science in Sociology from Montana State University.",
-      "Her nursing background includes experience in Urgent Care, Same Day Services, the Post-Anesthesia Care Unit (PACU), and the Emergency Department.",
-      "She is board-certified by the American Academy of Nurse Practitioners.",
-      "A proud Montana native, Airica enjoys spending time outdoors. She finds peace and joy on the trails with her husband, Andy, and their dog, Willow, by her side."
-    ]
-  },
-  {
-    id: 'megan',
-    name: 'Megan Macke',
-    credentials: 'DNP, FNP',
-    status: '✓ Accepting New Patients',
-    image: meganImg,
-    bio: [
-      "A board-certified Family Nurse Practitioner who earned her Doctor of Nursing Practice degree from the University of Mary in Bismarck, ND. Originally from Billings, MT, she is proud to serve the Helena community.",
-      "Megan has a special interest in women's health and primary care. She has pursued advanced training in Fertility Education and Medical Management (FEMM) to provide patients with comprehensive guidance on hormonal health, menstrual cycles, and evidence-based care options supporting ovulation/fertility.",
-      "In addition to her clinical work, Megan enjoys life with her husband, their three kids, and their Goldendoodle. Together, they love spending time outdoors camping, boating, along with traveling internationally."
-    ]
-  }
-];
+import { providers } from '../data/providers';
 ---
 
 <section id="providers" class="py-12 lg:py-16">
   <div class="max-w-5xl mx-auto px-6 lg:px-8">
     <h2 class="text-3xl lg:text-4xl font-bold text-brand-700 mb-12 text-center">Our Healthcare Providers</h2>
-    
+
     <div class="space-y-16">
       {providers.map((provider) => (
         <article class="provider-card" key={provider.id}>
