@@ -5,6 +5,5 @@ dist/
 .DS_Store
 *.log
 .astro/
-public/
 build/
 coverage/
