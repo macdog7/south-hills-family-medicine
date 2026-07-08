@@ -55,3 +55,24 @@ export const BUSINESS = {
   /** Profiles that reference this business, for schema.org `sameAs`. */
   sameAs: ["https://www.facebook.com/profile.php?id=100064733118312"],
 } as const;
+
+/** "08:00" -> "8:00 AM". Keeps human-readable hours derived from the same
+ *  24-hour values the schema uses, so the visible page can't drift from it. */
+function to12Hour(time: string): string {
+  const [h, m] = time.split(":").map(Number);
+  const period = h < 12 ? "AM" : "PM";
+  const hour = h % 12 === 0 ? 12 : h % 12;
+  return `${hour}:${m.toString().padStart(2, "0")} ${period}`;
+}
+
+/** Human-readable office hours (e.g. "Monday – Friday", "8:00 AM – 5:00 PM")
+ *  for display, derived from BUSINESS.hours. Days not listed are closed. */
+export function officeHours(): { days: string; time: string }[] {
+  return BUSINESS.hours.map((h) => ({
+    days:
+      h.days.length > 1
+        ? `${h.days[0]} – ${h.days[h.days.length - 1]}`
+        : h.days[0],
+    time: `${to12Hour(h.opens)} – ${to12Hour(h.closes)}`,
+  }));
+}
