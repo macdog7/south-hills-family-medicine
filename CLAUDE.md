@@ -18,7 +18,8 @@ Requires Node (dev on Node 25). There is no lint step and no test suite — don'
 
 ## Architecture
 
-- **One page.** `src/pages/index.astro` composes the whole site from section components: `Header` → `Hero` → `Services` → `Providers` → `Faq` → `Footer`. Navigation is anchor-based (`#home`, `#services`, `#providers`, `#faq`); there are no other routes.
+- **One main page + optional service sub-pages.** `src/pages/index.astro` composes the homepage from section components: `Header` → `Hero` → `Services` → `Providers` → `Faq` → `Footer`. Cross-page nav uses root-relative anchors (`/#home`, `/#services`, `/#providers`) so it works from sub-pages too.
+- **Service detail pages** are a dynamic route, `src/pages/services/[slug].astro`. `getStaticPaths` generates a page **only** for services whose `detail` is populated in `src/data/services.ts`, so a service with no long-form content ships no page (and its homepage card renders as plain text, no dead link). Each page gets a unique title/meta, a visible + schema breadcrumb, and a `MedicalWebPage` node tied to the clinic `@id`. Add content → page + sitemap entry + "Learn more" link appear automatically.
 - **`src/layouts/Layout.astro`** is the HTML shell: `<head>` meta, Open Graph / Twitter tags, canonical URL, favicon links, font preloading, and the global stylesheet import. JSON-LD structured data lives inline in `index.astro`.
 - **Content lives in typed data arrays**, each imported by a component for rendering **and** `index.astro` for structured data, so the visible page and the schema stay in sync — edit once, both update:
   - `src/data/providers.ts` → `Providers.astro` + `Person` nodes.

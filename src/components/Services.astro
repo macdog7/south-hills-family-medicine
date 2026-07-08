@@ -25,8 +25,23 @@ import { services, iconPaths } from '../data/services';
             class="text-accent-blue mb-6" role="img" aria-hidden="true">
             <path d={iconPaths[service.icon]} />
           </svg>
-          <h3 class="text-xl font-bold text-brand-800 mb-3">{service.title}</h3>
+          <h3 class="text-xl font-bold text-brand-800 mb-3">
+            {service.detail ? (
+              <a href={`/services/${service.slug}`} class="hover:text-accent-blue transition-colors">
+                {service.title}
+              </a>
+            ) : service.title}
+          </h3>
           <p class="text-warm-gray leading-relaxed">{service.description}</p>
+          {service.detail && (
+            <a
+              href={`/services/${service.slug}`}
+              class="inline-flex items-center gap-1 mt-4 text-accent-blue font-semibold hover:gap-2 transition-all"
+              aria-label={`Learn more about ${service.title}`}
+            >
+              Learn more →
+            </a>
+          )}
         </article>
       ))}
     </div>

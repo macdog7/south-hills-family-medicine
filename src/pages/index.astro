@@ -59,6 +59,7 @@ const clinic = {
     "@type": "MedicalProcedure",
     name: s.title,
     description: s.description,
+    ...(s.detail ? { url: `${SITE_URL}/services/${s.slug}/` } : {}),
   })),
   employee: providers.map((p) => ({ "@id": `${SITE_URL}/#provider-${p.id}` })),
 };
