@@ -37,16 +37,28 @@ export const BUSINESS = {
     country: "US",
   },
 
-  /** Office hours. Open Monday–Friday 8:00 AM–5:00 PM; closed weekends. */
+  /** Office hours. Open Monday–Thursday 8:00 AM–5:00 PM; closed Friday–Sunday. */
   hours: [
     {
-      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday"],
       opens: "08:00",
       closes: "17:00",
     },
   ],
 
   priceRange: "$$",
+  /** Insurance plans accepted, for display on the page. */
+  acceptedInsurers: [
+    "Aetna",
+    "Allegiance",
+    "Blue Cross Blue Shield",
+    "Boulder Administrative Services",
+    "Cigna",
+    "Mountain Health CO-OP",
+    "PacificSource",
+    "UnitedHealthcare",
+    "Western Mutual Insurance",
+  ],
   insuranceNote: "We do not accept Medicare, Medicaid, or Tricare.",
 
   mapUrl:
@@ -63,6 +75,14 @@ function to12Hour(time: string): string {
   const period = h < 12 ? "AM" : "PM";
   const hour = h % 12 === 0 ? 12 : h % 12;
   return `${hour}:${m.toString().padStart(2, "0")} ${period}`;
+}
+
+/** Accepted insurers as a human-readable, comma-separated list with a final
+ *  "and" (e.g. "Aetna, Allegiance, and Cigna"). */
+export function acceptedInsurersList(): string {
+  const list = BUSINESS.acceptedInsurers;
+  if (list.length <= 1) return list.join("");
+  return `${list.slice(0, -1).join(", ")}, and ${list[list.length - 1]}`;
 }
 
 /** Human-readable office hours (e.g. "Monday – Friday", "8:00 AM – 5:00 PM")

@@ -1,4 +1,4 @@
-import { BUSINESS, officeHours } from "../config";
+import { BUSINESS, officeHours, acceptedInsurersList } from "../config";
 
 export interface FAQ {
   question: string;
@@ -28,11 +28,11 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What insurance do you accept?",
-    answer: BUSINESS.insuranceNote,
+    answer: `We accept ${acceptedInsurersList()}. ${BUSINESS.insuranceNote}`,
   },
   {
     question: "What are your office hours?",
-    answer: `Our office is open ${hoursLine}. We are closed on weekends.`,
+    answer: `Our office is open ${hoursLine}. We are closed Friday through Sunday.`,
   },
   {
     question: "Where is South Hills Medicine located?",

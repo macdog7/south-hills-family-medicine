@@ -1,5 +1,8 @@
 ---
 import { services, iconPaths } from '../data/services';
+import { acceptedInsurersList } from '../config';
+
+const insurers = acceptedInsurersList();
 ---
 
 <section id="services" class="py-16 lg:py-24 bg-brand-500">
@@ -11,8 +14,11 @@ import { services, iconPaths } from '../data/services';
         We offer personalized primary care for adults <strong>18 and older</strong> focused on thorough
         evaluation, accurate diagnosis, effective treatment, and long-term health management.
       </p>
-      <p class="text-base text-white mt-4 font-semibold">
-        ** We do not accept Medicare, Medicaid, or Tricare. **
+      <p class="text-base text-white/90 mt-4">
+        We accept {insurers}.
+      </p>
+      <p class="text-base text-white mt-2 font-semibold">
+        We do not accept Medicare, Medicaid, or Tricare.
       </p>
     </div>
 

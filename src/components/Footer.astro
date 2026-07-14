@@ -1,7 +1,8 @@
 ---
-import { BUSINESS, officeHours } from '../config';
+import { BUSINESS, officeHours, acceptedInsurersList } from '../config';
 
 const hours = officeHours();
+const insurers = acceptedInsurersList();
 ---
 
 <footer class="bg-brand-800 text-white py-12 lg:py-16">
@@ -131,7 +132,7 @@ const hours = officeHours();
                 <span class="font-semibold">{h.days}:</span> {h.time}
               </div>
             ))}
-            <div class="text-white/80">Saturday &amp; Sunday: Closed</div>
+            <div class="text-white/80">Friday, Saturday &amp; Sunday: Closed</div>
           </div>
         </div>
       </div>
@@ -144,8 +145,8 @@ const hours = officeHours();
     <div class="grid md:grid-cols-2 gap-8">
       <div>
         <p class="text-sm text-white/70">
-          <strong>Insurance Note:</strong> We do not accept Medicare, Medicaid, or
-          Tricare.
+          <strong>Insurance:</strong> We accept {insurers}. We do not accept
+          Medicare, Medicaid, or Tricare.
         </p>
       </div>
       <div class="text-sm text-white/70 md:text-right">

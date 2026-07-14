@@ -83,13 +83,13 @@ export const services: ServiceCard[] = [
         {
           heading: "Conditions we help manage",
           body: [
-            "We provide ongoing care for common chronic conditions including diabetes, high blood pressure (hypertension), heart disease, high cholesterol, and thyroid disorders. If you're managing more than one condition, we coordinate your care so your treatments work together.",
+            "We provide ongoing care for chronic conditions including diabetes, high blood pressure (hypertension), heart disease, high cholesterol, and thyroid disorders. If you're managing more than one condition, we coordinate your care so your treatments work together.",
           ],
         },
         {
           heading: "How ongoing care works",
           body: [
-            "Chronic care is a partnership. We track your numbers over time, adjust medications as needed, order appropriate lab work and screenings, and check in on how treatment fits your life. We'll help you understand your condition and the small, sustainable changes that make the biggest difference.",
+            "Chronic care is a partnership. We trend your lab values over time, adjust medications as needed, order appropriate lab work and screenings, and check in on how treatment fits your life. We'll help you understand your condition and the small, sustainable changes that make the biggest difference.",
           ],
         },
         {
