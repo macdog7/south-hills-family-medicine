@@ -1,0 +1,51 @@
+---
+import { faqs } from '../data/faqs';
+---
+
+<section id="faq" class="py-12 lg:py-16 bg-brand-50">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+    <h2 class="text-3xl lg:text-4xl font-bold text-brand-700 mb-10 text-center">
+      Frequently Asked Questions
+    </h2>
+
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="faq-item group bg-white rounded-2xl border border-gray-100 shadow-sm">
+          <summary
+            class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 text-lg font-semibold text-brand-800"
+          >
+            <span>{faq.question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-accent-blue shrink-0 transition-transform duration-300 group-open:rotate-180"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <p class="px-6 pb-5 -mt-1 text-gray-700 leading-relaxed">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary:focus-visible {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+    border-radius: 1rem;
+  }
+</style>

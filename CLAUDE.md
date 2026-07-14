@@ -18,17 +18,22 @@ Requires Node (dev on Node 25). There is no lint step and no test suite — don'
 
 ## Architecture
 
-- **One page.** `src/pages/index.astro` composes the whole site from section components: `Header` → `Hero` → `Services` → `Providers` → `Footer`. Navigation is anchor-based within the page (`#home`, `#services`, `#providers`); there are no other routes.
-- **`src/layouts/Layout.astro`** is the HTML shell: `<head>` meta, Open Graph tags, canonical URL, font preloading, and the global stylesheet import. JSON-LD structured data (`MedicalBusiness` schema) lives inline in `index.astro`.
-- **Content lives in typed data arrays.** Provider data is in `src/data/providers.ts` (imported by `Providers.astro` for rendering **and** `index.astro` for Person structured data — edit it once, both stay in sync). Service cards + `iconPaths` are still inline in `Services.astro`'s frontmatter.
+- **One main page + optional service sub-pages.** `src/pages/index.astro` composes the homepage from section components: `Header` → `Hero` → `Services` → `Providers` → `Faq` → `Footer`. Cross-page nav uses root-relative anchors (`/#home`, `/#services`, `/#providers`) so it works from sub-pages too.
+- **Service detail pages** are a dynamic route, `src/pages/services/[slug].astro`. `getStaticPaths` generates a page **only** for services whose `detail` is populated in `src/data/services.ts`, so a service with no long-form content ships no page (and its homepage card renders as plain text, no dead link). Each page gets a unique title/meta, a visible + schema breadcrumb, and a `MedicalWebPage` node tied to the clinic `@id`. Add content → page + sitemap entry + "Learn more" link appear automatically.
+- **`src/layouts/Layout.astro`** is the HTML shell: `<head>` meta, Open Graph / Twitter tags, canonical URL, favicon links, font preloading, and the global stylesheet import. JSON-LD structured data lives inline in `index.astro`.
+- **Content lives in typed data arrays**, each imported by a component for rendering **and** `index.astro` for structured data, so the visible page and the schema stay in sync — edit once, both update:
+  - `src/data/providers.ts` → `Providers.astro` + `Person` nodes.
+  - `src/data/services.ts` (service cards + `iconPaths`) → `Services.astro` + `availableService`.
+  - `src/data/faqs.ts` → `Faq.astro` (a no-JS `<details>` accordion) + `FAQPage`. Answers are derived strictly from existing site facts / `config.ts` — don't invent new claims here.
 
 ## SEO
 
-- **`src/config.ts` is the single source of truth for SEO / NAP data** (business name, address, phone, hours, `sameAs`, `SITE_URL`, `OG_IMAGE`). It feeds the meta tags in `Layout.astro`, the JSON-LD `@graph` in `index.astro`, and `robots.txt`. (It used to be unused dead code — it isn't anymore; keep it accurate, since search engines cross-check it against directory listings.)
-- **Structured data** is a schema.org `@graph` built in `index.astro`: one `MedicalClinic`/`MedicalBusiness`/`LocalBusiness` node cross-linked (`employee` ↔ `worksFor`) to a `Person` node per provider. Validate changes with Google's Rich Results Test.
+- **`src/config.ts` is the single source of truth for SEO / NAP data** (business name, address, phone, hours, `sameAs`, `SITE_URL`, `OG_IMAGE`). It feeds the meta tags in `Layout.astro`, the JSON-LD `@graph` in `index.astro`, and `robots.txt`. (It used to be unused dead code — it isn't anymore; keep it accurate, since search engines cross-check it against directory listings.) `officeHours()` derives the human-readable hours (footer) from the same 24-hour values the schema uses, so the two can't disagree.
+- **Structured data** is a schema.org `@graph` built in `index.astro`: a `MedicalClinic`/`MedicalBusiness`/`LocalBusiness` node (with `availableService`, `logo`, `openingHoursSpecification`) cross-linked (`employee` ↔ `worksFor`) to a `Person` node per provider, plus a `FAQPage` node. Validate changes with Google's Rich Results Test.
+- **Favicon** is `public/favicon.svg` — the brand mountain mark (white on a `#2B4158` rounded square, reused from the `Header.astro` logo path). It's also referenced as the schema `logo`.
 - **`robots.txt` is a route** (`src/pages/robots.txt.ts`), not a static file, so its `Sitemap:` URL is derived from the configured `site` and can't drift. It points at the `@astrojs/sitemap` output.
 - **The OG/social image** is `public/og-image.jpg`, referenced via `OG_IMAGE`. It was generated from the brand logo + colors with `sharp`; regenerate at the same 1200×630 if branding changes.
-- ⚠️ **Human-visible contact details in `Header.astro` / `Hero.astro` / `Footer.astro` are still hardcoded** (phone, address, map link) and are *not* yet wired to `config.ts`. If you change NAP data, update both `config.ts` and those components so the visible text and the schema don't disagree.
+- ⚠️ **Some human-visible contact details in `Header.astro` / `Hero.astro` / `Footer.astro` are still hardcoded** — the phone number and the street-address *text* are literal, not read from `config.ts`. (The map links and the footer's office-hours block **are** wired to `config.ts` now.) If you change NAP data, update both `config.ts` and any component still holding literal text, so the visible page and the schema don't disagree.
 
 ## Key conventions & gotchas
 

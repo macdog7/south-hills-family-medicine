@@ -1,51 +1,8 @@
 ---
-interface ServiceCard {
-  icon: string;
-  title: string;
-  description: string;
-}
+import { services, iconPaths } from '../data/services';
+import { acceptedInsurersList } from '../config';
 
-const services: ServiceCard[] = [
-  {
-    icon: "users",
-    title: "Primary Care",
-    description: "Annual wellness exams, preventive screenings, and routine physicals designed to keep you healthy year-round. We focus on early detection, lifestyle support, and personalized health planning."
-  },
-  {
-    icon: "trending",
-    title: "Chronic Condition Management",
-    description: "Expert management of diabetes, hypertension, heart disease, and other ongoing health conditions with regular monitoring and personalized treatment plans."
-  },
-  {
-    icon: "checkmark",
-    title: "Acute Care & Same-Day Visits",
-    description: "Prompt attention for urgent health concerns, including infections, injuries, and sudden illness. We prioritize getting you seen quickly when you need care."
-  },
-  {
-    icon: "pills",
-    title: "Medication Management",
-    description: "Safe, thoughtful prescribing and regular review of all your medications, including refills, dose adjustments, and monitoring for interactions or side effects."
-  },
-  {
-    icon: "heart",
-    title: "Women's Health",
-    description: "Comprehensive care including well-woman exams, contraception counseling, hormone-focused care, perimenopause and menopause management, and preventive screening tailored to every stage of life."
-  },
-  {
-    icon: "shield",
-    title: "Men's Health",
-    description: "Focused care for men's unique health needs, including prostate screening, cardiovascular risk assessment, and preventive health counseling."
-  }
-];
-
-const iconPaths: Record<string, string> = {
-  users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M9 7a4 4 0 1 1 0-8 4 4 0 0 1 0 8z",
-  trending: "M22 12h-4l-3 9L9 3l-3 9H2",
-  checkmark: "M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4l-10 10.01-3-3.01",
-  pills: "M22 12h-4l-3 9L9 3l-3 9H2M15 9l-3 9-3-9m0 0h6",
-  heart: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
-  shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-};
+const insurers = acceptedInsurersList();
 ---
 
 <section id="services" class="py-16 lg:py-24 bg-brand-500">
@@ -57,8 +14,11 @@ const iconPaths: Record<string, string> = {
         We offer personalized primary care for adults <strong>18 and older</strong> focused on thorough
         evaluation, accurate diagnosis, effective treatment, and long-term health management.
       </p>
-      <p class="text-base text-white mt-4 font-semibold">
-        ** We do not accept Medicare, Medicaid, or Tricare. **
+      <p class="text-base text-white/90 mt-4">
+        We accept {insurers}.
+      </p>
+      <p class="text-base text-white mt-2 font-semibold">
+        We do not accept Medicare, Medicaid, or Tricare.
       </p>
     </div>
 
@@ -71,8 +31,23 @@ const iconPaths: Record<string, string> = {
             class="text-accent-blue mb-6" role="img" aria-hidden="true">
             <path d={iconPaths[service.icon]} />
           </svg>
-          <h3 class="text-xl font-bold text-brand-800 mb-3">{service.title}</h3>
+          <h3 class="text-xl font-bold text-brand-800 mb-3">
+            {service.detail ? (
+              <a href={`/services/${service.slug}`} class="hover:text-accent-blue transition-colors">
+                {service.title}
+              </a>
+            ) : service.title}
+          </h3>
           <p class="text-warm-gray leading-relaxed">{service.description}</p>
+          {service.detail && (
+            <a
+              href={`/services/${service.slug}`}
+              class="inline-flex items-center gap-1 mt-4 text-accent-blue font-semibold hover:gap-2 transition-all"
+              aria-label={`Learn more about ${service.title}`}
+            >
+              Learn more →
+            </a>
+          )}
         </article>
       ))}
     </div>

@@ -1,5 +1,6 @@
 ---
 // Header component with improved accessibility and navigation
+import { BUSINESS } from '../config';
 ---
 
 <header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
@@ -25,13 +26,13 @@
 
       <!-- Navigation -->
       <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
-        <a href="#home" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Home</a>
-        <a href="#services" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Services</a>
-        <a href="#providers"
+        <a href="/#home" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Home</a>
+        <a href="/#services" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Services</a>
+        <a href="/#providers"
           class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Providers</a>
 
         <!-- Location Pin (Desktop) -->
-        <a href="https://maps.google.com/?q=South+Hills+Medicine+Helena+MT" target="_blank"
+        <a href={BUSINESS.mapUrl} target="_blank"
           rel="noopener noreferrer"
           class="hidden xl:flex items-center gap-2 px-4 py-2 text-brand-800 hover:text-accent-blue transition-colors"
           title="View our location on Google Maps"
@@ -59,7 +60,7 @@
       <!-- Mobile Menu Button -->
       <div class="lg:hidden flex items-center gap-2">
         <!-- Location Pin (Mobile) -->
-        <a href="https://maps.google.com/?q=South+Hills+Medicine+Helena+MT" target="_blank"
+        <a href={BUSINESS.mapUrl} target="_blank"
           rel="noopener noreferrer"
           class="p-2 text-brand-800 hover:bg-gray-100 rounded-md transition-colors"
           title="View our location on Google Maps"
@@ -88,11 +89,11 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-gray-200">
       <nav class="flex flex-col gap-2 pt-4" aria-label="Mobile navigation">
-        <a href="#home"
+        <a href="/#home"
           class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Home</a>
-        <a href="#services"
+        <a href="/#services"
           class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Services</a>
-        <a href="#providers"
+        <a href="/#providers"
           class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Providers</a>
         <a href="tel:+14064422205"
           class="inline-flex items-center justify-center gap-2 px-6 py-3 mt-2 rounded-lg bg-accent-blue text-white font-semibold shadow-md">
