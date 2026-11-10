@@ -11,6 +11,8 @@ export interface Provider {
   /** Plain-language role, used for schema.org Person `jobTitle`. */
   jobTitle: string;
   status?: string;
+  /** Optional schedule note shown on the card, e.g. "Sees patients Tuesday–Friday". */
+  schedule?: string;
   image: ImageMetadata;
   /** Institutions attended, for schema.org `alumniOf`. */
   alumniOf: string[];
@@ -48,6 +50,8 @@ export const providers: Provider[] = [
     credentials: "DNP, FNP",
     jobTitle: "Family Nurse Practitioner",
     status: "✓ Accepting New Patients",
+    // In January 2027, change to "Sees patients Tuesday–Friday".
+    schedule: "Starting January: sees patients Tuesday–Friday",
     image: airicaImg,
     alumniOf: ["Montana State University", "Regis University"],
     knowsAbout: [

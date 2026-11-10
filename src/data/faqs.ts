@@ -1,4 +1,10 @@
-import { BUSINESS, officeHours, acceptedInsurersList } from "../config";
+import {
+  BUSINESS,
+  UPCOMING,
+  officeHours,
+  acceptedInsurersList,
+  closedDays,
+} from "../config";
 
 export interface FAQ {
   question: string;
@@ -32,11 +38,17 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What are your office hours?",
-    answer: `Our office is open ${hoursLine}. We are closed Friday through Sunday.`,
+    answer: `Our office is open ${hoursLine}. We are closed ${closedDays()}.`,
   },
   {
     question: "Where is South Hills Medicine located?",
-    answer: `We are located at ${address.street}, ${address.city}, ${address.region} ${address.postalCode}.`,
+    // Second sentence is temporary — remove once BUSINESS.address is switched to UPCOMING.address.
+    answer: `We are located at ${address.street}, ${address.city}, ${address.region} ${address.postalCode}. Starting ${UPCOMING.moveDate}, we'll be at our new clinic: ${UPCOMING.address.street}, ${UPCOMING.address.city}, ${UPCOMING.address.region} ${UPCOMING.address.postalCode}.`,
+  },
+  {
+    // Temporary — remove once the move and Mon–Fri schedule are live (see UPCOMING in config.ts).
+    question: "Is South Hills Medicine moving?",
+    answer: `Yes — on ${UPCOMING.moveDate} we're moving to ${UPCOMING.address.street}, ${UPCOMING.address.city}, ${UPCOMING.address.region} ${UPCOMING.address.postalCode}. Starting in ${UPCOMING.hoursStart}, we'll be seeing patients Monday through Friday. Our phone number stays the same: ${phoneDisplay}.`,
   },
   {
     question: "What services do you offer?",

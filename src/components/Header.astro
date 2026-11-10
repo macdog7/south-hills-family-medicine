@@ -1,9 +1,11 @@
 ---
 // Header component with improved accessibility and navigation
 import { BUSINESS } from '../config';
+import MoveBanner from './MoveBanner.astro';
 ---
 
 <header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
+  <MoveBanner />
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between py-4">
       <!-- Logo and Brand -->
@@ -26,7 +28,7 @@ import { BUSINESS } from '../config';
 
       <!-- Navigation -->
       <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
-        <a href="/#home" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Home</a>
+        <a href="/" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Home</a>
         <a href="/#services" class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Services</a>
         <a href="/#providers"
           class="nav-link text-brand-800 font-medium hover:text-accent-blue transition-colors">Providers</a>
@@ -45,9 +47,9 @@ import { BUSINESS } from '../config';
         </a>
 
         <!-- Contact Button -->
-        <a href="tel:+14064422205"
+        <a href={`tel:${BUSINESS.phone}`}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-blue text-white font-semibold shadow-md transition-all duration-300 hover:bg-brand-700 hover:shadow-lg hover:-translate-y-0.5"
-          aria-label="Call us at 406-442-2205">
+          aria-label={`Call us at ${BUSINESS.phoneDisplay}`}>
           <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
             class="fill-white" role="img" aria-hidden="true">
             <path
@@ -89,13 +91,13 @@ import { BUSINESS } from '../config';
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-gray-200">
       <nav class="flex flex-col gap-2 pt-4" aria-label="Mobile navigation">
-        <a href="/#home"
+        <a href="/"
           class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Home</a>
         <a href="/#services"
           class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Services</a>
         <a href="/#providers"
           class="px-4 py-2 text-brand-800 font-medium hover:bg-gray-50 rounded-md transition-colors">Providers</a>
-        <a href="tel:+14064422205"
+        <a href={`tel:${BUSINESS.phone}`}
           class="inline-flex items-center justify-center gap-2 px-6 py-3 mt-2 rounded-lg bg-accent-blue text-white font-semibold shadow-md">
           <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
             class="fill-white" role="img" aria-hidden="true">

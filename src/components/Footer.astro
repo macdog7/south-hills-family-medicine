@@ -1,5 +1,5 @@
 ---
-import { BUSINESS, officeHours, acceptedInsurersList } from '../config';
+import { BUSINESS, UPCOMING, officeHours, acceptedInsurersList, closedDays } from '../config';
 
 const hours = officeHours();
 const insurers = acceptedInsurersList();
@@ -22,7 +22,7 @@ const insurers = acceptedInsurersList();
         <h3 class="text-lg font-bold mb-4">Quick Links</h3>
         <nav class="space-y-2" aria-label="Footer navigation">
           <a
-            href="/#home"
+            href="/"
             class="text-white/80 hover:text-white transition-colors text-sm"
             >Home</a
           >
@@ -37,7 +37,7 @@ const insurers = acceptedInsurersList();
             >Providers</a
           >
           <a
-            href="tel:+14064422205"
+            href={`tel:${BUSINESS.phone}`}
             class="text-white/80 hover:text-white transition-colors text-sm"
             >Contact Us</a
           >
@@ -51,10 +51,10 @@ const insurers = acceptedInsurersList();
           <div>
             <p class="text-white/80">Phone</p>
             <a
-              href="tel:+14064422205"
+              href={`tel:${BUSINESS.phone}`}
               class="text-white hover:text-accent-blue transition-colors font-semibold"
             >
-              (406) 442-2205
+              {BUSINESS.phoneDisplay}
             </a>
           </div>
           <div>
@@ -111,9 +111,9 @@ const insurers = acceptedInsurersList();
                 </svg>
                 <div>
                   <div class="text-white font-semibold">
-                    301 Saddle Dr Suite D
+                    {BUSINESS.address.street}
                   </div>
-                  <div class="text-white/80">Helena, MT 59601</div>
+                  <div class="text-white/80">{BUSINESS.address.city}, {BUSINESS.address.region} {BUSINESS.address.postalCode}</div>
                   <div
                     class="text-sm mt-1 underline text-accent-blue group-hover:text-white"
                   >
@@ -121,6 +121,13 @@ const insurers = acceptedInsurersList();
                   </div>
                 </div>
               </div>
+            </a>
+            <!-- Temporary: upcoming move (remove once BUSINESS.address is switched) -->
+            <a
+              href="/#moving"
+              class="mt-3 block rounded-xl bg-notice text-brand-900 p-3 font-semibold hover:brightness-95 transition"
+            >
+              Moving {UPCOMING.moveDate} to {UPCOMING.address.street}, {UPCOMING.address.city} →
             </a>
           </div>
 
@@ -132,7 +139,7 @@ const insurers = acceptedInsurersList();
                 <span class="font-semibold">{h.days}:</span> {h.time}
               </div>
             ))}
-            <div class="text-white/80">Friday, Saturday &amp; Sunday: Closed</div>
+            <div class="text-white/80">{closedDays("&")}: Closed</div>
           </div>
         </div>
       </div>

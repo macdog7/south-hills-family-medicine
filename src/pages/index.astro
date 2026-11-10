@@ -6,6 +6,7 @@ import Services from '../components/Services.astro';
 import Providers from '../components/Providers.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
+import MoveAnnouncement from '../components/MoveAnnouncement.astro';
 import { BUSINESS, OG_IMAGE, SITE_URL } from '../config';
 import { providers } from '../data/providers';
 import { services } from '../data/services';
@@ -98,10 +99,11 @@ const structuredData = {
 <Layout title={pageTitle} description={pageDescription}>
   <Header />
   <main>
+    <MoveAnnouncement />
     <Hero 
       title="Compassionate and thorough Healthcare for Helena and the greater community"
       ctaText="Call to Schedule"
-      ctaHref="tel:+14064422205"
+      ctaHref={`tel:${BUSINESS.phone}`}
     />
     <Services />
     <Providers />
