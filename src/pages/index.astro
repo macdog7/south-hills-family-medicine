@@ -7,12 +7,12 @@ import Providers from '../components/Providers.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 import MoveAnnouncement from '../components/MoveAnnouncement.astro';
-import { BUSINESS, OG_IMAGE, SITE_URL } from '../config';
+import { BUSINESS, OG_IMAGE, SITE_TITLE, SITE_URL } from '../config';
 import { providers } from '../data/providers';
 import { services } from '../data/services';
 import { faqs } from '../data/faqs';
 
-const pageTitle = "Nurse Practitioner & Primary Care Clinic in Helena, MT | South Hills Medicine";
+const pageTitle = SITE_TITLE;
 const pageDescription = "Compassionate and thorough primary care for adults 18 and older in Helena, Montana. Expert nurse practitioners offering preventive care, chronic condition management, women's & men's health, and same-day visits.";
 
 // schema.org structured data emitted as a @graph: the clinic (MedicalClinic)
