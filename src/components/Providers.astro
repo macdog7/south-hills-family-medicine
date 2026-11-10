@@ -35,6 +35,9 @@ import { providers } from '../data/providers';
                     {provider.status}
                   </div>
                 ) : null}
+                {provider.schedule ? (
+                  <p class="text-sm font-medium text-brand-700">{provider.schedule}</p>
+                ) : null}
               </div>
               {provider.bio.map((paragraph) => (
                 <p class="text-gray-700 text-sm leading-relaxed">{paragraph}</p>

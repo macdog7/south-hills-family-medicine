@@ -18,6 +18,42 @@ export const SITE_DESCRIPTION =
  *  the site root — add public/og-image.jpg (1200x630) to the deploy. */
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
+/**
+ * Announced-but-not-yet-effective changes, shown in the site-wide MoveBanner.
+ * The live NAP/hours in BUSINESS below stay accurate to *today* (search
+ * engines and patients rely on them), and switch over when each change happens:
+ *
+ *   - On/after Dec 1, 2026 (the move): set `BUSINESS.address = UPCOMING.address`
+ *     and `BUSINESS.mapUrl = UPCOMING.mapUrl`.
+ *   - In January 2027 (Mon–Fri schedule): set `BUSINESS.hours = UPCOMING.hours`,
+ *     and update Airica's `schedule` line in src/data/providers.ts.
+ *   - Once both are live, remove <MoveBanner /> from Header.astro,
+ *     <MoveAnnouncement /> from index.astro, the footer move notice, the
+ *     move sentence in the location FAQ, the "Is South Hills Medicine
+ *     moving?" FAQ, and the `notice` colors in global.css.
+ */
+export const UPCOMING = {
+  moveDate: "December 1",
+  address: {
+    street: "2748 Colonial Dr",
+    city: "Helena",
+    region: "MT",
+    postalCode: "59601",
+    country: "US",
+  },
+  mapUrl:
+    "https://maps.google.com/?q=South+Hills+Medicine+2748+Colonial+Dr+Helena+MT+59601",
+  hoursStart: "January",
+  /** Office hours once the Monday–Friday schedule starts. */
+  hours: [
+    {
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+  ],
+} as const;
+
 export const BUSINESS = {
   /** Primary customer-facing brand name. Use this verbatim everywhere. */
   name: "South Hills Medicine",
@@ -29,6 +65,7 @@ export const BUSINESS = {
   phoneDisplay: "(406) 442-2205",
   email: "info@south-hills-medicine.com",
 
+  /** Current address. On Dec 1, 2026 switch to UPCOMING.address (see above). */
   address: {
     street: "301 Saddle Dr Suite D",
     city: "Helena",
@@ -37,7 +74,8 @@ export const BUSINESS = {
     country: "US",
   },
 
-  /** Office hours. Open Monday–Thursday 8:00 AM–5:00 PM; closed Friday–Sunday. */
+  /** Current office hours: Monday–Thursday 8:00 AM–5:00 PM. Days not listed
+   *  are closed. In January 2027 switch to UPCOMING.hours (see above). */
   hours: [
     {
       days: ["Monday", "Tuesday", "Wednesday", "Thursday"],
@@ -61,6 +99,7 @@ export const BUSINESS = {
   ],
   insuranceNote: "We do not accept Medicare, Medicaid, or Tricare.",
 
+  /** Switch to UPCOMING.mapUrl together with the address. */
   mapUrl:
     "https://maps.google.com/?q=South+Hills+Medicine+301+Saddle+Dr+Helena+MT+59601",
 
@@ -95,4 +134,25 @@ export function officeHours(): { days: string; time: string }[] {
         : h.days[0],
     time: `${to12Hour(h.opens)} – ${to12Hour(h.closes)}`,
   }));
+}
+
+const WEEK = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+] as const;
+
+/** Days the office is closed (any day not listed in BUSINESS.hours), joined
+ *  for display — e.g. "Friday, Saturday, and Sunday" or "Saturday and Sunday".
+ *  Derived so the "closed" text can't disagree with the open hours. */
+export function closedDays(conjunction = "and"): string {
+  const open = new Set<string>(BUSINESS.hours.flatMap((h) => [...h.days]));
+  const closed = WEEK.filter((d) => !open.has(d));
+  if (closed.length <= 2) return closed.join(` ${conjunction} `);
+  const serial = conjunction === "and" ? "," : ""; // Oxford comma only for "and"
+  return `${closed.slice(0, -1).join(", ")}${serial} ${conjunction} ${closed[closed.length - 1]}`;
 }

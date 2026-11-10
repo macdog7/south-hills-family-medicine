@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import heroImg from "../assets/hero.jpg";
+import { BUSINESS } from "../config";
 
 interface Props {
   title?: string;
@@ -13,7 +14,7 @@ const {
   title = "Compassionate and thorough care for Helena and the greater community",
   subtitle = "",
   ctaText = "Call to Schedule",
-  ctaHref = "tel:+14064422205",
+  ctaHref = `tel:${BUSINESS.phone}`,
 } = Astro.props;
 ---
 

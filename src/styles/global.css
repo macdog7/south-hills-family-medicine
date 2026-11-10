@@ -10,6 +10,11 @@
 
     --color-egshell: #FDFBF8;
 
+    /* High-visibility notice color (temporary move announcement). Intentionally
+       off-brand so important notices stand out from normal page chrome. */
+    --color-notice: #F2C14E;
+    --color-notice-50: #FDF6E3;
+
     /* Brand – sophisticated slate blue scale */
     --color-brand-900: #1E2F42;
     --color-brand-800: #2B4158;
@@ -206,4 +211,9 @@
             background-color: rgba(91, 143, 168, 0.08) !important;
         }
     }
+}
+/* Land in-page anchor links (/#services, /#moving, ...) below the sticky
+   header (announcement strip + nav) instead of underneath it. */
+html {
+  scroll-padding-top: 7.75rem;
 }

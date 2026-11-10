@@ -1,0 +1,42 @@
+---
+// High-visibility announcement strip for the clinic move (+ Mon–Fri schedule).
+// Rendered inside the sticky <header> (Header.astro) so it stays visible on
+// every page while scrolling. The whole strip links to the full announcement
+// section at the top of the homepage (MoveAnnouncement.astro, #moving).
+//
+// Uses the `notice` color (global.css) — deliberately off-brand so it can't be
+// mistaken for part of the normal page chrome. The move is primary; the Mon–Fri
+// schedule is secondary and shown on wider screens only.
+//
+// Remove it from Header.astro once both changes are live — see the UPCOMING
+// comment in config.ts.
+import { UPCOMING } from '../config';
+
+const moveBadge = UPCOMING.moveDate.replace('December', 'Dec');
+const hoursBadge = UPCOMING.hoursStart.slice(0, 3);
+---
+
+<a
+  href="/#moving"
+  class="group block bg-notice text-brand-900 hover:brightness-95 transition"
+  aria-label={`Important: we're moving ${UPCOMING.moveDate} to ${UPCOMING.address.street}. Starting in ${UPCOMING.hoursStart}, we'll see patients Monday through Friday. Read the details.`}
+>
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 flex items-center justify-center gap-3 text-[15px] sm:text-base whitespace-nowrap">
+    <!-- Primary: the move -->
+    <span class="flex items-center gap-2">
+      <span class="rounded bg-brand-800 text-white px-2 py-0.5 text-xs sm:text-sm font-bold uppercase tracking-wide">{moveBadge}</span>
+      <span class="font-bold">
+        <span class="sm:hidden">Moving to {UPCOMING.address.street}</span>
+        <span class="hidden sm:inline">We're moving to {UPCOMING.address.street}</span>
+      </span>
+    </span>
+
+    <!-- Secondary: Mon–Fri schedule (desktop only; full details in #moving) -->
+    <span class="hidden lg:flex items-center gap-2 pl-3 border-l border-brand-900/30 text-brand-900/80 text-sm">
+      <span class="rounded border border-brand-900/50 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide">{hoursBadge}</span>
+      Seeing patients Monday–Friday
+    </span>
+
+    <span class="rounded-md bg-brand-800 text-white px-2.5 py-1 text-xs sm:text-sm font-semibold group-hover:bg-brand-700">Details&nbsp;›</span>
+  </div>
+</a>
